@@ -1,0 +1,4556 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+
+<title>STYLE MANIA | Admin</title>
+
+<style>
+
+:root{
+  --black:#111111;
+  --dark:#181818;
+  --cream:#f5efe4;
+  --gold:#c8a96b;
+  --gold-light:#eee0bd;
+  --white:#ffffff;
+  --background:#f5f5f3;
+  --border:#ddddda;
+  --text:#111111;
+  --muted:#777;
+  --green:#dff2e3;
+  --green-text:#17652a;
+  --yellow:#fff0c4;
+  --yellow-text:#795d00;
+  --red:#f4d7d7;
+  --red-text:#8b1e1e;
+  --blue:#dcecff;
+  --blue-text:#174f8a;
+}
+
+*{
+  box-sizing:border-box;
+}
+
+body{
+  margin:0;
+  font-family:Arial,Helvetica,sans-serif;
+  background:var(--background);
+  color:var(--text);
+}
+
+button,
+input,
+select,
+textarea{
+  font:inherit;
+}
+
+button{
+  cursor:pointer;
+}
+
+/* ================================
+   LOGIN
+================================ */
+
+.login{
+  min-height:100vh;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  background:
+    radial-gradient(circle at top,#44371f,#080808 55%);
+}
+
+.login-box{
+  width:min(430px,92%);
+  background:#fff;
+  padding:40px;
+  box-shadow:0 25px 80px #0008;
+  border-top:5px solid var(--gold);
+}
+
+.login-box h1{
+  letter-spacing:5px;
+  margin:0 0 8px;
+}
+
+.login-box p{
+  color:var(--muted);
+}
+
+.login-box label{
+  display:block;
+  font-weight:bold;
+  margin-top:15px;
+}
+
+.login-box input{
+  width:100%;
+  padding:13px;
+  margin:7px 0 5px;
+  border:1px solid #ccc;
+}
+
+/* ================================
+   HEADER
+================================ */
+
+header{
+  height:70px;
+  background:var(--black);
+  color:#fff;
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  padding:0 25px;
+  position:sticky;
+  top:0;
+  z-index:50;
+  border-bottom:3px solid var(--gold);
+}
+
+.brand{
+  font-weight:900;
+  letter-spacing:4px;
+}
+
+.logout{
+  background:#fff;
+  color:#111;
+  border:0;
+  padding:10px 15px;
+  font-weight:bold;
+}
+
+/* ================================
+   LAYOUT
+================================ */
+
+.layout{
+  display:flex;
+  min-height:calc(100vh - 70px);
+}
+
+aside{
+  width:240px;
+  background:var(--dark);
+  padding:20px;
+  flex-shrink:0;
+}
+
+aside button{
+  display:block;
+  width:100%;
+  text-align:left;
+  background:none;
+  border:0;
+  color:#aaa;
+  padding:14px 12px;
+  margin-bottom:5px;
+  border-radius:5px;
+}
+
+aside button:hover,
+aside button.active{
+  background:var(--gold);
+  color:#111;
+}
+
+.nav-title{
+  color:#777;
+  font-size:11px;
+  font-weight:bold;
+  letter-spacing:2px;
+  margin:15px 10px 8px;
+}
+
+/* ================================
+   MAIN
+================================ */
+
+main{
+  flex:1;
+  padding:30px;
+  overflow:auto;
+}
+
+.page-heading{
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  gap:15px;
+  flex-wrap:wrap;
+}
+
+.page-heading h1{
+  margin-bottom:5px;
+}
+
+.page-heading p{
+  color:var(--muted);
+  margin-top:0;
+}
+
+/* ================================
+   BUTTONS
+================================ */
+
+.primary{
+  background:var(--black);
+  color:#fff;
+  border:0;
+  padding:11px 16px;
+  font-weight:bold;
+  border-radius:4px;
+}
+
+.primary:hover{
+  background:#333;
+}
+
+.gold{
+  background:var(--gold);
+  color:#111;
+  border:0;
+  padding:11px 16px;
+  font-weight:bold;
+  border-radius:4px;
+}
+
+.secondary{
+  background:#fff;
+  color:#111;
+  border:1px solid #ccc;
+  padding:11px 16px;
+  border-radius:4px;
+}
+
+.secondary:hover{
+  border-color:var(--gold);
+}
+
+.danger{
+  background:#fff;
+  color:#a00;
+  border:1px solid #d8aaaa;
+  padding:9px 13px;
+  border-radius:4px;
+}
+
+.small-btn{
+  padding:7px 10px;
+  font-size:12px;
+}
+
+/* ================================
+   DASHBOARD CARDS
+================================ */
+
+.cards{
+  display:grid;
+  grid-template-columns:repeat(5,1fr);
+  gap:15px;
+}
+
+.card{
+  background:#fff;
+  border:1px solid var(--border);
+  padding:20px;
+  border-radius:7px;
+  border-top:4px solid var(--gold);
+}
+
+.card span{
+  display:block;
+  color:var(--muted);
+  font-size:13px;
+}
+
+.card strong{
+  display:block;
+  font-size:28px;
+  margin-top:8px;
+}
+
+/* ================================
+   PANELS
+================================ */
+
+.panel{
+  background:#fff;
+  border:1px solid var(--border);
+  padding:20px;
+  margin-top:20px;
+  border-radius:7px;
+}
+
+.panel-title{
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  gap:10px;
+  flex-wrap:wrap;
+}
+
+/* ================================
+   KPI
+================================ */
+
+.kpi-grid{
+  display:grid;
+  grid-template-columns:repeat(4,1fr);
+  gap:12px;
+  margin-bottom:15px;
+}
+
+.kpi{
+  background:#fafafa;
+  border:1px solid #eee;
+  padding:15px;
+  border-radius:5px;
+}
+
+.kpi strong{
+  font-size:22px;
+  display:block;
+  margin-top:5px;
+}
+
+/* ================================
+   TOOLBAR
+================================ */
+
+.toolbar{
+  display:flex;
+  gap:10px;
+  margin-bottom:20px;
+  flex-wrap:wrap;
+}
+
+.toolbar input{
+  flex:1;
+  min-width:220px;
+  padding:12px;
+  border:1px solid #ddd;
+}
+
+/* ================================
+   TABLE
+================================ */
+
+table{
+  width:100%;
+  border-collapse:collapse;
+}
+
+th,
+td{
+  padding:13px 8px;
+  border-top:1px solid #eee;
+  text-align:left;
+  vertical-align:top;
+}
+
+th{
+  font-size:12px;
+  text-transform:uppercase;
+  color:#777;
+}
+
+/* ================================
+   BADGES
+================================ */
+
+.badge{
+  display:inline-block;
+  padding:5px 9px;
+  border-radius:20px;
+  font-size:12px;
+  font-weight:bold;
+}
+
+.green{
+  background:var(--green);
+  color:var(--green-text);
+}
+
+.yellow{
+  background:var(--yellow);
+  color:var(--yellow-text);
+}
+
+.red{
+  background:var(--red);
+  color:var(--red-text);
+}
+
+.blue{
+  background:var(--blue);
+  color:var(--blue-text);
+}
+
+.gold-badge{
+  background:var(--gold-light);
+  color:#654d19;
+}
+
+/* ================================
+   ORDER
+================================ */
+
+.order-card{
+  border:1px solid #ddd;
+  padding:18px;
+  margin-bottom:15px;
+  border-radius:6px;
+  background:#fff;
+}
+
+.order-header{
+  display:flex;
+  justify-content:space-between;
+  gap:15px;
+  flex-wrap:wrap;
+}
+
+.order-items{
+  margin-top:15px;
+  border-top:1px solid #eee;
+  padding-top:10px;
+}
+
+.order-total{
+  font-size:20px;
+  font-weight:bold;
+  margin-top:15px;
+}
+
+.order-tabs{
+  display:flex;
+  gap:8px;
+  flex-wrap:wrap;
+  margin-bottom:15px;
+}
+
+.order-tabs button.active{
+  background:#111;
+  color:#fff;
+  border-color:#111;
+}
+
+/* ================================
+   FORMS
+================================ */
+
+.form-group{
+  margin-bottom:15px;
+}
+
+.form-group label{
+  display:block;
+  font-weight:bold;
+  margin-bottom:5px;
+}
+
+.form-group input,
+.form-group textarea,
+.form-group select{
+  width:100%;
+  padding:11px;
+  border:1px solid #ccc;
+  border-radius:3px;
+}
+
+.form-help{
+  color:#777;
+  font-size:12px;
+  margin-top:4px;
+}
+
+/* ================================
+   MODALS
+================================ */
+
+.modal{
+  display:none;
+  position:fixed;
+  inset:0;
+  background:#0009;
+  align-items:center;
+  justify-content:center;
+  z-index:100;
+}
+
+.modal.open{
+  display:flex;
+}
+
+.modal-box{
+  background:#fff;
+  width:min(700px,94%);
+  max-height:90vh;
+  overflow:auto;
+  padding:25px;
+  border-radius:7px;
+  border-top:5px solid var(--gold);
+}
+
+.modal-box h2{
+  margin-top:0;
+}
+
+.modal-actions{
+  display:flex;
+  gap:10px;
+  flex-wrap:wrap;
+  margin-top:20px;
+}
+
+/* ================================
+   IMAGE
+================================ */
+
+.image-preview{
+  width:100%;
+  height:180px;
+  background:#eee;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  margin-bottom:10px;
+  overflow:hidden;
+}
+
+.image-preview img{
+  width:100%;
+  height:100%;
+  object-fit:cover;
+}
+
+/* ================================
+   PROMOTIONS
+================================ */
+
+.promo-card{
+  border:1px solid #ddd;
+  border-left:5px solid var(--gold);
+  padding:18px;
+  margin-bottom:12px;
+  border-radius:5px;
+  background:#fff;
+}
+
+.promo-header{
+  display:flex;
+  justify-content:space-between;
+  gap:15px;
+  flex-wrap:wrap;
+}
+
+.promo-code{
+  font-size:20px;
+  font-weight:900;
+  letter-spacing:2px;
+}
+
+.promo-info{
+  display:grid;
+  grid-template-columns:repeat(4,1fr);
+  gap:10px;
+  margin-top:15px;
+}
+
+.promo-stat{
+  background:#f8f8f6;
+  padding:12px;
+  border:1px solid #eee;
+}
+
+.promo-stat span{
+  display:block;
+  color:#777;
+  font-size:11px;
+  text-transform:uppercase;
+}
+
+.promo-stat strong{
+  display:block;
+  margin-top:4px;
+}
+
+/* ================================
+   MARKETING
+================================ */
+
+.marketing-card{
+  border:1px solid #ddd;
+  padding:18px;
+  margin-bottom:12px;
+  border-radius:6px;
+  background:#fff;
+}
+
+.marketing-grid{
+  display:grid;
+  grid-template-columns:repeat(3,1fr);
+  gap:12px;
+}
+
+/* ================================
+   EMPTY / NOTICE
+================================ */
+
+.empty{
+  color:#777;
+  padding:30px 0;
+  text-align:center;
+}
+
+.notice{
+  padding:12px;
+  background:#fff4d6;
+  border:1px solid #ead18a;
+  margin-bottom:20px;
+}
+
+.small{
+  font-size:12px;
+  color:#777;
+}
+
+/* ================================
+   TOAST
+================================ */
+
+.toast{
+  position:fixed;
+  right:20px;
+  bottom:20px;
+  background:#111;
+  color:#fff;
+  padding:14px 18px;
+  border-radius:5px;
+  display:none;
+  z-index:200;
+  border-left:4px solid var(--gold);
+}
+
+/* ================================
+   RESPONSIVE
+================================ */
+
+@media(max-width:1100px){
+
+  .cards{
+    grid-template-columns:repeat(2,1fr);
+  }
+
+  .kpi-grid{
+    grid-template-columns:repeat(2,1fr);
+  }
+
+  .promo-info{
+    grid-template-columns:repeat(2,1fr);
+  }
+
+  .marketing-grid{
+    grid-template-columns:1fr 1fr;
+  }
+
+  aside{
+    width:75px;
+  }
+
+  aside button{
+    font-size:0;
+    text-align:center;
+  }
+
+  .nav-title{
+    display:none;
+  }
+
+}
+
+@media(max-width:650px){
+
+  .cards,
+  .kpi-grid,
+  .promo-info,
+  .marketing-grid{
+    grid-template-columns:1fr;
+  }
+
+  header{
+    padding:0 15px;
+  }
+
+  .brand{
+    font-size:14px;
+  }
+
+  main{
+    padding:15px;
+  }
+
+  table{
+    display:block;
+    overflow-x:auto;
+    white-space:nowrap;
+  }
+
+}
+
+</style>
+</head>
+
+<body>
+
+<!-- =====================================================
+     LOGIN
+===================================================== -->
+
+<div id="loginScreen" class="login">
+
+  <div class="login-box">
+
+    <h1>STYLE MANIA</h1>
+
+    <p>Administrator Login</p>
+
+    <label>Email</label>
+
+    <input
+      id="loginEmail"
+      type="email"
+      placeholder="admin@stylemania.local"
+    >
+
+    <label>Password</label>
+
+    <input
+      id="loginPassword"
+      type="password"
+      placeholder="Password"
+      onkeydown="if(event.key==='Enter')login()"
+    >
+
+    <button
+      class="primary"
+      style="width:100%;padding:14px"
+      onclick="login()"
+    >
+      LOGIN
+    </button>
+
+    <p id="loginError" style="color:#c00"></p>
+
+  </div>
+
+</div>
+
+
+<!-- =====================================================
+     ADMIN
+===================================================== -->
+
+<div id="adminScreen" style="display:none">
+
+<header>
+
+  <div class="brand">
+    STYLE MANIA / ADMIN
+  </div>
+
+  <button
+    class="logout"
+    onclick="logout()"
+  >
+    LOG OUT
+  </button>
+
+</header>
+
+
+<div class="layout">
+
+
+<aside>
+
+  <div class="nav-title">
+    MAIN
+  </div>
+
+  <button
+    id="navDashboard"
+    onclick="showPage('dashboard')"
+  >
+    Dashboard
+  </button>
+
+  <button
+    id="navOrders"
+    onclick="showPage('orders')"
+  >
+    Orders
+  </button>
+
+  <button
+    id="navProducts"
+    onclick="showPage('products')"
+  >
+    Products
+  </button>
+
+
+  <div class="nav-title">
+    MARKETING
+  </div>
+
+  <button
+    id="navPromotions"
+    onclick="showPage('promotions')"
+  >
+    Promotions & Discounts
+  </button>
+
+  <button
+    id="navMarketing"
+    onclick="showPage('marketing')"
+  >
+    Influencer / Gifts
+  </button>
+
+
+  <div class="nav-title">
+    STORE
+  </div>
+
+  <button onclick="openStore()">
+    View Store
+  </button>
+
+</aside>
+
+
+<main id="mainContent"></main>
+
+</div>
+
+</div>
+
+
+<!-- =====================================================
+     PRODUCT MODAL
+===================================================== -->
+
+<div
+  id="productModal"
+  class="modal"
+>
+
+<div class="modal-box">
+
+<h2 id="productModalTitle">
+Add Product
+</h2>
+
+
+<div class="form-group">
+
+<label>
+Product name
+</label>
+
+<input id="productName">
+
+</div>
+
+
+<div class="form-group">
+
+<label>
+SKU
+</label>
+
+<input id="productSku">
+
+</div>
+
+
+<div class="form-group">
+
+<label>
+Vehicle / Application
+</label>
+
+<input id="productVehicle">
+
+</div>
+
+
+<div class="form-group">
+
+<label>
+Category
+</label>
+
+<select id="productCategory">
+
+<option>Exterior</option>
+<option>Interior</option>
+<option>Wheels</option>
+<option>Lighting</option>
+<option>Custom</option>
+<option>Merchandise</option>
+
+</select>
+
+</div>
+
+
+<div class="form-group">
+
+<label>
+Description
+</label>
+
+<textarea
+  id="productDescription"
+  rows="4"
+></textarea>
+
+</div>
+
+
+<div class="form-group">
+
+<label>
+Price (ZAR)
+</label>
+
+<input
+  id="productPrice"
+  type="number"
+  min="0"
+  step="0.01"
+>
+
+</div>
+
+
+<div class="form-group">
+
+<label>
+Stock
+</label>
+
+<input
+  id="productStock"
+  type="number"
+  min="0"
+>
+
+</div>
+
+
+<div class="form-group">
+
+<label>
+Low stock threshold
+</label>
+
+<input
+  id="productLowStock"
+  type="number"
+  value="5"
+  min="0"
+>
+
+</div>
+
+
+<div class="form-group">
+
+<label>
+Limited Series
+</label>
+
+<input
+  id="productSeries"
+  placeholder="Example: Black Edition"
+>
+
+</div>
+
+
+<div class="form-group">
+
+<label>
+Product Image
+</label>
+
+<input
+  id="productImage"
+  type="file"
+  accept="image/*"
+  onchange="previewImage()"
+>
+
+</div>
+
+
+<div class="image-preview">
+
+<img
+  id="imagePreview"
+  style="display:none"
+>
+
+<span id="imagePlaceholder">
+Product image preview
+</span>
+
+</div>
+
+
+<div class="modal-actions">
+
+<button
+  class="primary"
+  onclick="saveProduct()"
+>
+SAVE PRODUCT
+</button>
+
+<button
+  class="secondary"
+  onclick="closeProductModal()"
+>
+CANCEL
+</button>
+
+</div>
+
+
+<p
+  id="productError"
+  style="color:#c00"
+></p>
+
+</div>
+
+</div>
+
+
+<!-- =====================================================
+     PROMOTION MODAL
+===================================================== -->
+
+<div
+  id="promotionModal"
+  class="modal"
+>
+
+<div class="modal-box">
+
+<h2 id="promotionModalTitle">
+Create Discount Code
+</h2>
+
+
+<div class="form-group">
+
+<label>
+Discount Code
+</label>
+
+<input
+  id="promoCode"
+  placeholder="Example: ISILAATNAGCREW"
+  style="text-transform:uppercase"
+>
+
+<div class="form-help">
+Customers will enter this code during checkout.
+</div>
+
+</div>
+
+
+<div class="form-group">
+
+<label>
+Discount Type
+</label>
+
+<select id="promoType">
+
+<option value="percentage">
+Percentage (%)
+</option>
+
+<option value="fixed">
+Fixed Amount (ZAR)
+</option>
+
+</select>
+
+</div>
+
+
+<div class="form-group">
+
+<label>
+Discount Value
+</label>
+
+<input
+  id="promoValue"
+  type="number"
+  min="0"
+  step="0.01"
+  placeholder="15"
+>
+
+<div class="form-help">
+Example: 15 = 15% discount, or R15 if Fixed Amount is selected.
+</div>
+
+</div>
+
+
+<div class="form-group">
+
+<label>
+Minimum Order Amount (ZAR)
+</label>
+
+<input
+  id="promoMinimum"
+  type="number"
+  min="0"
+  step="0.01"
+  value="0"
+>
+
+</div>
+
+
+<div class="form-group">
+
+<label>
+Maximum Uses
+</label>
+
+<input
+  id="promoMaxUses"
+  type="number"
+  min="0"
+  value="0"
+>
+
+<div class="form-help">
+Use 0 for unlimited.
+</div>
+
+</div>
+
+
+<div class="form-group">
+
+<label>
+Expiry Date
+</label>
+
+<input
+  id="promoExpiry"
+  type="date"
+>
+
+<div class="form-help">
+Leave empty if the promotion has no expiry.
+</div>
+
+</div>
+
+
+<div class="form-group">
+
+<label>
+Campaign / Influencer Reference
+</label>
+
+<input
+  id="promoCampaign"
+  placeholder="Example: Isilaatnag Crew"
+>
+
+</div>
+
+
+<div class="form-group">
+
+<label>
+Description / Internal Notes
+</label>
+
+<textarea
+  id="promoDescription"
+  rows="3"
+  placeholder="Internal admin notes..."
+></textarea>
+
+</div>
+
+
+<div class="form-group">
+
+<label>
+Status
+</label>
+
+<select id="promoActive">
+
+<option value="true">
+Active
+</option>
+
+<option value="false">
+Inactive
+</option>
+
+</select>
+
+</div>
+
+
+<div class="modal-actions">
+
+<button
+  class="gold"
+  onclick="savePromotion()"
+>
+SAVE DISCOUNT CODE
+</button>
+
+<button
+  class="secondary"
+  onclick="closePromotionModal()"
+>
+CANCEL
+</button>
+
+</div>
+
+
+<p
+  id="promotionError"
+  style="color:#c00"
+></p>
+
+</div>
+
+</div>
+
+
+<!-- =====================================================
+     MARKETING MODAL
+===================================================== -->
+
+<div
+  id="marketingModal"
+  class="modal"
+>
+
+<div class="modal-box">
+
+<h2>
+Add Influencer / Marketing Gift
+</h2>
+
+
+<div class="form-group">
+
+<label>
+Influencer / Recipient
+</label>
+
+<input
+  id="marketingName"
+  placeholder="Name"
+>
+
+</div>
+
+
+<div class="form-group">
+
+<label>
+Campaign
+</label>
+
+<input
+  id="marketingCampaign"
+  placeholder="Campaign name"
+>
+
+</div>
+
+
+<div class="form-group">
+
+<label>
+Reference / Discount Code
+</label>
+
+<input
+  id="marketingCode"
+  placeholder="ISILAATNAGCREW"
+>
+
+</div>
+
+
+<div class="form-group">
+
+<label>
+Gift / Product
+</label>
+
+<input
+  id="marketingGift"
+  placeholder="Example: TLN Black Chino Shorts"
+>
+
+</div>
+
+
+<div class="form-group">
+
+<label>
+Quantity
+</label>
+
+<input
+  id="marketingQuantity"
+  type="number"
+  min="1"
+  value="1"
+>
+
+</div>
+
+
+<div class="form-group">
+
+<label>
+Notes
+</label>
+
+<textarea
+  id="marketingNotes"
+  rows="4"
+></textarea>
+
+</div>
+
+
+<div class="modal-actions">
+
+<button
+  class="gold"
+  onclick="saveMarketing()"
+>
+SAVE MARKETING RECORD
+</button>
+
+<button
+  class="secondary"
+  onclick="closeMarketingModal()"
+>
+CANCEL
+</button>
+
+</div>
+
+
+<p
+  id="marketingError"
+  style="color:#c00"
+></p>
+
+</div>
+
+</div>
+
+
+<div id="toast" class="toast"></div>
+
+
+<script>
+
+/* =====================================================
+   GLOBAL DATA
+===================================================== */
+
+let currentProducts=[];
+let currentOrders=[];
+let currentPromotions=[];
+let currentMarketing=[];
+
+let editingProductId=null;
+let editingPromotionId=null;
+
+
+/* =====================================================
+   API
+===================================================== */
+
+async function api(url,options={}){
+
+  const response=await fetch(
+    url,
+    {
+      ...options,
+      headers:{
+        ...(options.headers||{})
+      }
+    }
+  );
+
+  if(response.status===401){
+
+    showLogin();
+
+    throw new Error(
+      "Authentication required"
+    );
+
+  }
+
+  let data=null;
+
+  try{
+    data=await response.json();
+  }catch{}
+
+  if(!response.ok){
+
+    throw new Error(
+      data?.error ||
+      "Something went wrong"
+    );
+
+  }
+
+  return data;
+
+}
+
+
+/* =====================================================
+   LOGIN
+===================================================== */
+
+function showLogin(){
+
+  document
+    .getElementById("loginScreen")
+    .style.display="flex";
+
+  document
+    .getElementById("adminScreen")
+    .style.display="none";
+
+}
+
+
+async function login(){
+
+  const error=
+    document.getElementById(
+      "loginError"
+    );
+
+  error.textContent="";
+
+  try{
+
+    await api(
+      "/api/admin/login",
+      {
+        method:"POST",
+        headers:{
+          "Content-Type":
+            "application/json"
+        },
+        body:JSON.stringify({
+
+          email:
+            document
+              .getElementById("loginEmail")
+              .value
+              .trim(),
+
+          password:
+            document
+              .getElementById("loginPassword")
+              .value
+
+        })
+      }
+    );
+
+    showAdmin();
+
+  }catch(e){
+
+    error.textContent=
+      e.message;
+
+  }
+
+}
+
+
+async function logout(){
+
+  try{
+
+    await api(
+      "/api/admin/logout",
+      {
+        method:"POST"
+      }
+    );
+
+  }catch{}
+
+  showLogin();
+
+}
+
+
+function showAdmin(){
+
+  document
+    .getElementById("loginScreen")
+    .style.display="none";
+
+  document
+    .getElementById("adminScreen")
+    .style.display="block";
+
+  showPage("dashboard");
+
+}
+
+
+/* =====================================================
+   NAVIGATION
+===================================================== */
+
+function setActive(id){
+
+  document
+    .querySelectorAll("aside button")
+    .forEach(
+      b=>b.classList.remove("active")
+    );
+
+  const button=
+    document.getElementById(id);
+
+  if(button)
+    button.classList.add("active");
+
+}
+
+
+async function showPage(page){
+
+  try{
+
+    if(page==="dashboard"){
+
+      setActive("navDashboard");
+
+      await dashboard();
+
+    }
+
+    if(page==="orders"){
+
+      setActive("navOrders");
+
+      await ordersPage();
+
+    }
+
+    if(page==="products"){
+
+      setActive("navProducts");
+
+      await productsPage();
+
+    }
+
+    if(page==="promotions"){
+
+      setActive("navPromotions");
+
+      await promotionsPage();
+
+    }
+
+    if(page==="marketing"){
+
+      setActive("navMarketing");
+
+      await marketingPage();
+
+    }
+
+  }catch(e){
+
+    document
+      .getElementById("mainContent")
+      .innerHTML=`
+
+        <div class="panel">
+
+          <h2>Error</h2>
+
+          <p>
+            ${escapeHtml(e.message)}
+          </p>
+
+        </div>
+
+      `;
+
+  }
+
+}
+
+
+/* =====================================================
+   DASHBOARD
+===================================================== */
+
+async function dashboard(){
+
+  const data=
+    await api("/api/dashboard");
+
+  currentOrders=
+    await api("/api/orders");
+
+  let pending=
+    currentOrders.filter(
+      o=>
+        (o.payment_status||"pending")
+        ==="pending"
+    ).length;
+
+  let paid=
+    currentOrders.filter(
+      o=>
+        o.payment_status==="paid"
+    ).length;
+
+  let processing=
+    currentOrders.filter(
+      o=>
+        o.order_status==="processing"
+    ).length;
+
+  let newOrders=
+    currentOrders.filter(
+      o=>
+        (o.order_status||"new")
+        ==="new"
+    ).length;
+
+
+  let promoCount=0;
+
+  try{
+
+    currentPromotions=
+      await api("/api/promotions");
+
+    promoCount=
+      currentPromotions.length;
+
+  }catch{}
+
+
+  document
+    .getElementById("mainContent")
+    .innerHTML=`
+
+      <div class="page-heading">
+
+        <div>
+
+          <h1>Dashboard</h1>
+
+          <p>
+            Your Style Mania control center.
+          </p>
+
+        </div>
+
+      </div>
+
+
+      <div class="cards">
+
+        <div class="card">
+
+          <span>
+            Total Revenue
+          </span>
+
+          <strong>
+            ${money(data.revenue)}
+          </strong>
+
+        </div>
+
+
+        <div class="card">
+
+          <span>
+            Total Orders
+          </span>
+
+          <strong>
+            ${data.orders}
+          </strong>
+
+        </div>
+
+
+        <div class="card">
+
+          <span>
+            Products
+          </span>
+
+          <strong>
+            ${data.products}
+          </strong>
+
+        </div>
+
+
+        <div class="card">
+
+          <span>
+            Low Stock
+          </span>
+
+          <strong>
+            ${data.low}
+          </strong>
+
+        </div>
+
+
+        <div class="card">
+
+          <span>
+            Sold Out
+          </span>
+
+          <strong>
+            ${data.sold}
+          </strong>
+
+        </div>
+
+      </div>
+
+
+      <div class="panel">
+
+        <div class="panel-title">
+
+          <h2>
+            Order Overview
+          </h2>
+
+          <button
+            class="secondary"
+            onclick="showPage('orders')"
+          >
+            MANAGE ORDERS
+          </button>
+
+        </div>
+
+
+        <div class="kpi-grid">
+
+          <div class="kpi">
+
+            New Orders
+
+            <strong>
+              ${newOrders}
+            </strong>
+
+          </div>
+
+
+          <div class="kpi">
+
+            Awaiting Payment
+
+            <strong>
+              ${pending}
+            </strong>
+
+          </div>
+
+
+          <div class="kpi">
+
+            Payments Received
+
+            <strong>
+              ${paid}
+            </strong>
+
+          </div>
+
+
+          <div class="kpi">
+
+            Processing
+
+            <strong>
+              ${processing}
+            </strong>
+
+          </div>
+
+        </div>
+
+      </div>
+
+
+      <div class="panel">
+
+        <div class="panel-title">
+
+          <div>
+
+            <h2>
+              Marketing
+            </h2>
+
+            <p class="small">
+              Active discount campaigns:
+              ${promoCount}
+            </p>
+
+          </div>
+
+          <button
+            class="gold"
+            onclick="openPromotionModal()"
+          >
+            + CREATE DISCOUNT
+          </button>
+
+        </div>
+
+      </div>
+
+
+      <div class="panel">
+
+        <h2>
+          Quick Actions
+        </h2>
+
+        <button
+          class="primary"
+          onclick="openProductModal()"
+        >
+          + ADD PRODUCT
+        </button>
+
+        <button
+          class="gold"
+          onclick="openPromotionModal()"
+        >
+          + DISCOUNT CODE
+        </button>
+
+        <button
+          class="secondary"
+          onclick="showPage('marketing')"
+        >
+          INFLUENCER / GIFTS
+        </button>
+
+      </div>
+
+    `;
+
+}
+
+
+/* =====================================================
+   ORDERS
+===================================================== */
+
+async function ordersPage(){
+
+  currentOrders=
+    await api("/api/orders");
+
+  renderOrders("all");
+
+}
+
+
+function renderOrders(filter){
+
+  let orders=
+    currentOrders.slice();
+
+  if(filter==="new")
+    orders=
+      orders.filter(
+        o=>
+          (o.order_status||"new")
+          ==="new"
+      );
+
+  if(filter==="payment")
+    orders=
+      orders.filter(
+        o=>
+          (o.payment_status||"pending")
+          ==="pending"
+      );
+
+  if(filter==="paid")
+    orders=
+      orders.filter(
+        o=>
+          o.payment_status==="paid"
+      );
+
+  if(filter==="processing")
+    orders=
+      orders.filter(
+        o=>
+          o.order_status==="processing"
+      );
+
+  if(filter==="completed")
+    orders=
+      orders.filter(
+        o=>
+          o.order_status==="completed"
+      );
+
+
+  const counts={
+
+    all:
+      currentOrders.length,
+
+    new:
+      currentOrders.filter(
+        o=>
+          (o.order_status||"new")
+          ==="new"
+      ).length,
+
+    payment:
+      currentOrders.filter(
+        o=>
+          (o.payment_status||"pending")
+          ==="pending"
+      ).length,
+
+    paid:
+      currentOrders.filter(
+        o=>
+          o.payment_status==="paid"
+      ).length,
+
+    processing:
+      currentOrders.filter(
+        o=>
+          o.order_status==="processing"
+      ).length
+
+  };
+
+
+  document
+    .getElementById("mainContent")
+    .innerHTML=`
+
+      <div class="page-heading">
+
+        <div>
+
+          <h1>
+            Orders
+          </h1>
+
+          <p>
+            Manage orders, payments and fulfilment.
+          </p>
+
+        </div>
+
+        <button
+          class="secondary"
+          onclick="ordersPage()"
+        >
+          REFRESH
+        </button>
+
+      </div>
+
+
+      <div class="panel">
+
+        <div class="order-tabs">
+
+          <button
+            class="secondary ${filter==="all"?"active":""}"
+            onclick="renderOrders('all')"
+          >
+            All (${counts.all})
+          </button>
+
+          <button
+            class="secondary ${filter==="new"?"active":""}"
+            onclick="renderOrders('new')"
+          >
+            New (${counts.new})
+          </button>
+
+          <button
+            class="secondary ${filter==="payment"?"active":""}"
+            onclick="renderOrders('payment')"
+          >
+            Awaiting Payment (${counts.payment})
+          </button>
+
+          <button
+            class="secondary ${filter==="paid"?"active":""}"
+            onclick="renderOrders('paid')"
+          >
+            Paid (${counts.paid})
+          </button>
+
+          <button
+            class="secondary ${filter==="processing"?"active":""}"
+            onclick="renderOrders('processing')"
+          >
+            Processing (${counts.processing})
+          </button>
+
+        </div>
+
+
+        ${
+          orders.length
+          ?
+          orders.map(orderCard).join("")
+          :
+          `
+            <div class="empty">
+              No orders in this category.
+            </div>
+          `
+        }
+
+      </div>
+
+    `;
+
+}
+
+
+function orderCard(order){
+
+  const created=
+    order.created_at
+    ?
+    new Date(
+      order.created_at
+    ).toLocaleString("en-ZA")
+    :
+    "";
+
+
+  return `
+
+    <div class="order-card">
+
+      <div class="order-header">
+
+        <div>
+
+          <h2>
+            ${escapeHtml(
+              order.order_number||
+              order.id
+            )}
+          </h2>
+
+          <div>
+            <strong>
+              ${escapeHtml(
+                order.customer?.name||""
+              )}
+            </strong>
+          </div>
+
+          <div style="color:#777">
+            ${escapeHtml(
+              order.customer?.email||""
+            )}
+          </div>
+
+          <div style="color:#777">
+            ${escapeHtml(
+              order.customer?.phone||""
+            )}
+          </div>
+
+          <div style="color:#777">
+            ${escapeHtml(
+              order.customer?.address||""
+            )}
+          </div>
+
+          <div class="small">
+            Placed:
+            ${escapeHtml(created)}
+          </div>
+
+        </div>
+
+
+        <div>
+
+          <div>
+            Order:
+            ${orderStatusBadge(order)}
+          </div>
+
+          <br>
+
+          <div>
+            Payment:
+            ${paymentStatusBadge(order)}
+          </div>
+
+        </div>
+
+      </div>
+
+
+      <div class="order-items">
+
+        <strong>
+          Items
+        </strong>
+
+        ${
+          (order.items||[])
+          .map(
+            item=>`
+
+              <div style="
+                display:flex;
+                justify-content:space-between;
+                gap:10px;
+                padding:8px 0;
+                border-bottom:1px solid #eee
+              ">
+
+                <span>
+                  ${escapeHtml(item.name)}
+                  × ${item.quantity}
+                </span>
+
+                <span>
+                  ${money(
+                    Number(item.price)*
+                    Number(item.quantity)
+                  )}
+                </span>
+
+              </div>
+
+            `
+          )
+          .join("")
+        }
+
+
+        <div class="order-total">
+
+          Total:
+          ${money(order.total)}
+
+        </div>
+
+      </div>
+
+
+      <div style="
+        display:flex;
+        gap:10px;
+        margin-top:20px;
+        flex-wrap:wrap
+      ">
+
+        <label>
+
+          Order status
+
+          <select
+            onchange="
+              updateOrder(
+                '${order.id}',
+                this.value,
+                null
+              )
+            "
+          >
+
+            ${
+              [
+                "new",
+                "processing",
+                "completed",
+                "cancelled"
+              ]
+              .map(
+                s=>`
+
+                  <option
+                    value="${s}"
+                    ${
+                      order.order_status===s
+                      ?"selected"
+                      :""
+                    }
+                  >
+                    ${s}
+                  </option>
+
+                `
+              )
+              .join("")
+            }
+
+          </select>
+
+        </label>
+
+
+        <label>
+
+          Payment
+
+          <select
+            onchange="
+              updateOrder(
+                '${order.id}',
+                null,
+                this.value
+              )
+            "
+          >
+
+            ${
+              [
+                "pending",
+                "paid",
+                "failed"
+              ]
+              .map(
+                s=>`
+
+                  <option
+                    value="${s}"
+                    ${
+                      order.payment_status===s
+                      ?"selected"
+                      :""
+                    }
+                  >
+                    ${s}
+                  </option>
+
+                `
+              )
+              .join("")
+            }
+
+          </select>
+
+        </label>
+
+      </div>
+
+    </div>
+
+  `;
+
+}
+
+
+async function updateOrder(
+  id,
+  orderStatus,
+  paymentStatus
+){
+
+  const body={};
+
+  if(orderStatus)
+    body.order_status=
+      orderStatus;
+
+  if(paymentStatus)
+    body.payment_status=
+      paymentStatus;
+
+
+  try{
+
+    await api(
+      "/api/orders/"+id,
+      {
+        method:"PUT",
+        headers:{
+          "Content-Type":
+            "application/json"
+        },
+        body:
+          JSON.stringify(body)
+      }
+    );
+
+    showToast(
+      "Order updated"
+    );
+
+    await ordersPage();
+
+  }catch(e){
+
+    alert(e.message);
+
+  }
+
+}
+
+
+/* =====================================================
+   PRODUCTS
+===================================================== */
+
+async function productsPage(){
+
+  currentProducts=
+    await api("/api/products");
+
+  renderProductsPage(
+    currentProducts
+  );
+
+}
+
+
+function renderProductsPage(list){
+
+  document
+    .getElementById("mainContent")
+    .innerHTML=`
+
+      <div class="page-heading">
+
+        <div>
+
+          <h1>
+            Products
+          </h1>
+
+          <p>
+            Manage products, prices and stock.
+          </p>
+
+        </div>
+
+        <button
+          class="primary"
+          onclick="openProductModal()"
+        >
+          + ADD PRODUCT
+        </button>
+
+      </div>
+
+
+      <div class="panel">
+
+        <div class="toolbar">
+
+          <input
+            id="productSearch"
+            placeholder="
+              Search products, SKU, vehicle...
+            "
+            oninput="searchProducts()"
+          >
+
+        </div>
+
+
+        <div id="productsTable"></div>
+
+      </div>
+
+    `;
+
+
+  drawProductsTable(list);
+
+}
+
+
+function searchProducts(){
+
+  const q=
+    document
+      .getElementById("productSearch")
+      .value
+      .toLowerCase();
+
+
+  drawProductsTable(
+
+    currentProducts.filter(
+      p=>
+
+        `
+        ${p.name}
+        ${p.sku}
+        ${p.vehicle}
+        ${p.series}
+        ${p.category}
+        `
+        .toLowerCase()
+        .includes(q)
+    )
+
+  );
+
+}
+
+
+function drawProductsTable(list){
+
+  const container=
+    document.getElementById(
+      "productsTable"
+    );
+
+
+  if(!list.length){
+
+    container.innerHTML=`
+
+      <div class="empty">
+        No products found.
+      </div>
+
+    `;
+
+    return;
+
+  }
+
+
+  container.innerHTML=`
+
+    <table>
+
+      <thead>
+
+        <tr>
+
+          <th>
+            Product
+          </th>
+
+          <th>
+            Vehicle
+          </th>
+
+          <th>
+            Category
+          </th>
+
+          <th>
+            Price
+          </th>
+
+          <th>
+            Stock
+          </th>
+
+          <th>
+            Status
+          </th>
+
+          <th>
+            Action
+          </th>
+
+        </tr>
+
+      </thead>
+
+
+      <tbody>
+
+        ${
+          list
+          .map(
+            p=>`
+
+              <tr>
+
+                <td>
+
+                  <strong>
+                    ${escapeHtml(p.name)}
+                  </strong>
+
+                  <br>
+
+                  <small>
+                    SKU:
+                    ${escapeHtml(
+                      p.sku||"-"
+                    )}
+                  </small>
+
+                </td>
+
+
+                <td>
+                  ${escapeHtml(
+                    p.vehicle||
+                    "Universal"
+                  )}
+                </td>
+
+
+                <td>
+                  ${escapeHtml(
+                    p.category||
+                    "Custom"
+                  )}
+                </td>
+
+
+                <td>
+                  ${money(p.price)}
+                </td>
+
+
+                <td>
+                  ${p.stock}
+                </td>
+
+
+                <td>
+                  ${statusBadge(p)}
+                </td>
+
+
+                <td>
+
+                  <button
+                    class="gold small-btn"
+                    onclick="
+                      editProduct(
+                        '${p.id}'
+                      )
+                    "
+                  >
+                    EDIT
+                  </button>
+
+                  <button
+                    class="danger small-btn"
+                    onclick="
+                      deleteProduct(
+                        '${p.id}'
+                      )
+                    "
+                  >
+                    DELETE
+                  </button>
+
+                </td>
+
+              </tr>
+
+            `
+          )
+          .join("")
+        }
+
+      </tbody>
+
+    </table>
+
+  `;
+
+}
+
+
+function statusBadge(product){
+
+  if(
+    Number(product.stock)<=0
+  ){
+
+    return `
+      <span class="badge red">
+        SOLD OUT
+      </span>
+    `;
+
+  }
+
+
+  if(
+    Number(product.stock)<=
+    Number(product.low_stock)
+  ){
+
+    return `
+      <span class="badge yellow">
+        LOW STOCK
+      </span>
+    `;
+
+  }
+
+
+  return `
+    <span class="badge green">
+      ACTIVE
+    </span>
+  `;
+
+}
+
+
+/* =====================================================
+   PRODUCT MODAL
+===================================================== */
+
+function openProductModal(
+  product=null
+){
+
+  editingProductId=
+    product?.id||null;
+
+  document
+    .getElementById(
+      "productModalTitle"
+    )
+    .textContent=
+      product
+      ?
+      "Edit Product"
+      :
+      "Add Product";
+
+
+  clearProductForm();
+
+
+  if(product){
+
+    document
+      .getElementById(
+        "productName"
+      ).value=
+        product.name||"";
+
+    document
+      .getElementById(
+        "productSku"
+      ).value=
+        product.sku||"";
+
+    document
+      .getElementById(
+        "productVehicle"
+      ).value=
+        product.vehicle||"";
+
+    document
+      .getElementById(
+        "productCategory"
+      ).value=
+        product.category||
+        "Custom";
+
+    document
+      .getElementById(
+        "productDescription"
+      ).value=
+        product.description||"";
+
+    document
+      .getElementById(
+        "productPrice"
+      ).value=
+        product.price??"";
+
+    document
+      .getElementById(
+        "productStock"
+      ).value=
+        product.stock??"";
+
+    document
+      .getElementById(
+        "productLowStock"
+      ).value=
+        product.low_stock??5;
+
+    document
+      .getElementById(
+        "productSeries"
+      ).value=
+        product.series||"";
+
+
+    if(product.image){
+
+      document
+        .getElementById(
+          "imagePreview"
+        ).src=
+          product.image;
+
+      document
+        .getElementById(
+          "imagePreview"
+        ).style.display=
+          "block";
+
+      document
+        .getElementById(
+          "imagePlaceholder"
+        ).style.display=
+          "none";
+
+    }
+
+  }
+
+
+  document
+    .getElementById(
+      "productModal"
+    )
+    .classList.add("open");
+
+}
+
+
+function closeProductModal(){
+
+  document
+    .getElementById(
+      "productModal"
+    )
+    .classList.remove("open");
+
+}
+
+
+function editProduct(id){
+
+  const product=
+    currentProducts.find(
+      p=>p.id===id
+    );
+
+  if(!product){
+
+    alert(
+      "Product could not be found."
+    );
+
+    return;
+
+  }
+
+  openProductModal(product);
+
+}
+
+
+function clearProductForm(){
+
+  [
+    "productName",
+    "productSku",
+    "productVehicle",
+    "productDescription",
+    "productPrice",
+    "productStock",
+    "productSeries"
+  ]
+  .forEach(
+    id=>
+      document
+        .getElementById(id)
+        .value=""
+  );
+
+
+  document
+    .getElementById(
+      "productLowStock"
+    )
+    .value="5";
+
+
+  document
+    .getElementById(
+      "productImage"
+    )
+    .value="";
+
+
+  document
+    .getElementById(
+      "imagePreview"
+    )
+    .style.display=
+      "none";
+
+
+  document
+    .getElementById(
+      "imagePlaceholder"
+    )
+    .style.display=
+      "block";
+
+
+  document
+    .getElementById(
+      "productError"
+    )
+    .textContent="";
+
+}
+
+
+function previewImage(){
+
+  const input=
+    document.getElementById(
+      "productImage"
+    );
+
+  const preview=
+    document.getElementById(
+      "imagePreview"
+    );
+
+  const placeholder=
+    document.getElementById(
+      "imagePlaceholder"
+    );
+
+
+  if(!input.files.length){
+
+    return;
+
+  }
+
+
+  const reader=
+    new FileReader();
+
+
+  reader.onload=
+    function(event){
+
+      preview.src=
+        event.target.result;
+
+      preview.style.display=
+        "block";
+
+      placeholder.style.display=
+        "none";
+
+    };
+
+
+  reader.readAsDataURL(
+    input.files[0]
+  );
+
+}
+
+
+async function saveProduct(){
+
+  const error=
+    document.getElementById(
+      "productError"
+    );
+
+  error.textContent="";
+
+
+  const name=
+    document
+      .getElementById(
+        "productName"
+      )
+      .value
+      .trim();
+
+
+  const price=
+    document
+      .getElementById(
+        "productPrice"
+      )
+      .value;
+
+
+  if(!name){
+
+    error.textContent=
+      "Product name is required.";
+
+    return;
+
+  }
+
+
+  if(price===""){
+
+    error.textContent=
+      "Product price is required.";
+
+    return;
+
+  }
+
+
+  try{
+
+    let image=
+      "";
+
+
+    const imageInput=
+      document.getElementById(
+        "productImage"
+      );
+
+
+    if(imageInput.files.length){
+
+      const formData=
+        new FormData();
+
+
+      formData.append(
+        "image",
+        imageInput.files[0]
+      );
+
+
+      const upload=
+        await api(
+          "/api/upload",
+          {
+            method:"POST",
+            body:formData
+          }
+        );
+
+
+      image=
+        upload.url;
+
+    }
+
+
+    const payload={
+
+      name,
+
+      sku:
+        document
+          .getElementById(
+            "productSku"
+          )
+          .value
+          .trim(),
+
+      vehicle:
+        document
+          .getElementById(
+            "productVehicle"
+          )
+          .value
+          .trim(),
+
+      category:
+        document
+          .getElementById(
+            "productCategory"
+          )
+          .value,
+
+      description:
+        document
+          .getElementById(
+            "productDescription"
+          )
+          .value
+          .trim(),
+
+      price,
+
+      stock:
+        document
+          .getElementById(
+            "productStock"
+          )
+          .value,
+
+      low_stock:
+        document
+          .getElementById(
+            "productLowStock"
+          )
+          .value,
+
+      series:
+        document
+          .getElementById(
+            "productSeries"
+          )
+          .value
+          .trim()
+
+    };
+
+
+    if(image){
+
+      payload.image=
+        image;
+
+    }
+
+
+    if(editingProductId){
+
+      await api(
+        "/api/products/"+
+        editingProductId,
+        {
+          method:"PUT",
+          headers:{
+            "Content-Type":
+              "application/json"
+          },
+          body:
+            JSON.stringify(
+              payload
+            )
+        }
+      );
+
+
+      showToast(
+        "Product updated successfully"
+      );
+
+    }else{
+
+      await api(
+        "/api/products",
+        {
+          method:"POST",
+          headers:{
+            "Content-Type":
+              "application/json"
+          },
+          body:
+            JSON.stringify(
+              {
+                ...payload,
+                image:
+                  image||""
+              }
+            )
+        }
+      );
+
+
+      showToast(
+        "Product added successfully"
+      );
+
+    }
+
+
+    closeProductModal();
+
+    await productsPage();
+
+
+  }catch(e){
+
+    error.textContent=
+      e.message;
+
+  }
+
+}
+
+
+async function deleteProduct(id){
+
+  if(
+    !confirm(
+      "Are you sure you want to delete this product?"
+    )
+  )
+    return;
+
+
+  try{
+
+    await api(
+      "/api/products/"+id,
+      {
+        method:"DELETE"
+      }
+    );
+
+
+    showToast(
+      "Product deleted"
+    );
+
+
+    await productsPage();
+
+
+  }catch(e){
+
+    alert(
+      e.message
+    );
+
+  }
+
+}
+
+
+/* =====================================================
+   PROMOTIONS
+===================================================== */
+
+async function promotionsPage(){
+
+  currentPromotions=
+    await api("/api/promotions");
+
+
+  document
+    .getElementById(
+      "mainContent"
+    )
+    .innerHTML=`
+
+      <div class="page-heading">
+
+        <div>
+
+          <h1>
+            Promotions & Discounts
+          </h1>
+
+          <p>
+            Create discount codes for customers,
+            campaigns and influencers.
+          </p>
+
+        </div>
+
+
+        <button
+          class="gold"
+          onclick="openPromotionModal()"
+        >
+          + CREATE DISCOUNT CODE
+        </button>
+
+      </div>
+
+
+      <div class="notice">
+
+        <strong>
+          Example:
+        </strong>
+
+        Create
+        <strong>
+          ISILAATNAGCREW
+        </strong>
+
+        with a 15% discount and the checkout
+        can recognize that campaign code.
+
+      </div>
+
+
+      <div class="panel">
+
+        ${
+          currentPromotions.length
+          ?
+          currentPromotions
+            .map(
+              promotionCard
+            )
+            .join("")
+          :
+          `
+            <div class="empty">
+
+              No discount codes have been created yet.
+
+              <br><br>
+
+              <button
+                class="gold"
+                onclick="openPromotionModal()"
+              >
+                CREATE YOUR FIRST CODE
+              </button>
+
+            </div>
+          `
+        }
+
+      </div>
+
+    `;
+
+}
+
+
+function promotionCard(promo){
+
+  const active=
+    promo.active!==false;
+
+
+  const discount=
+    promo.type==="percentage"
+    ?
+    `${promo.value}% OFF`
+    :
+    `${money(promo.value)} OFF`;
+
+
+  return `
+
+    <div class="promo-card">
+
+      <div class="promo-header">
+
+        <div>
+
+          <div class="promo-code">
+
+            ${escapeHtml(
+              promo.code
+            )}
+
+          </div>
+
+          <div class="small">
+
+            ${escapeHtml(
+              promo.description||""
+            )}
+
+          </div>
+
+        </div>
+
+
+        <div>
+
+          ${
+            active
+            ?
+            `
+              <span class="badge green">
+                ACTIVE
+              </span>
+            `
+            :
+            `
+              <span class="badge red">
+                INACTIVE
+              </span>
+            `
+          }
+
+        </div>
+
+      </div>
+
+
+      <div class="promo-info">
+
+        <div class="promo-stat">
+
+          <span>
+            Discount
+          </span>
+
+          <strong>
+            ${discount}
+          </strong>
+
+        </div>
+
+
+        <div class="promo-stat">
+
+          <span>
+            Minimum Order
+          </span>
+
+          <strong>
+            ${
+              Number(promo.minimum_order||0)
+              ?
+              money(
+                promo.minimum_order
+              )
+              :
+              "No minimum"
+            }
+          </strong>
+
+        </div>
+
+
+        <div class="promo-stat">
+
+          <span>
+            Uses
+          </span>
+
+          <strong>
+
+            ${promo.uses||0}
+
+            ${
+              Number(promo.max_uses||0)
+              ?
+              " / "+promo.max_uses
+              :
+              " / Unlimited"
+            }
+
+          </strong>
+
+        </div>
+
+
+        <div class="promo-stat">
+
+          <span>
+            Campaign
+          </span>
+
+          <strong>
+            ${escapeHtml(
+              promo.campaign||"-"
+            )}
+          </strong>
+
+        </div>
+
+      </div>
+
+
+      <div style="
+        margin-top:15px;
+        display:flex;
+        gap:8px;
+        flex-wrap:wrap
+      ">
+
+        <button
+          class="gold small-btn"
+          onclick="
+            editPromotion(
+              '${promo.id}'
+            )
+          "
+        >
+          EDIT
+        </button>
+
+
+        <button
+          class="secondary small-btn"
+          onclick="
+            togglePromotion(
+              '${promo.id}'
+            )
+          "
+        >
+          ${
+            active
+            ?
+            "DEACTIVATE"
+            :
+            "ACTIVATE"
+          }
+        </button>
+
+
+        <button
+          class="danger small-btn"
+          onclick="
+            deletePromotion(
+              '${promo.id}'
+            )
+          "
+        >
+          DELETE
+        </button>
+
+      </div>
+
+
+      ${
+        promo.expiry
+        ?
+        `
+          <div class="small"
+               style="margin-top:10px">
+
+            Expires:
+            ${escapeHtml(
+              promo.expiry
+            )}
+
+          </div>
+        `
+        :
+        ""
+      }
+
+    </div>
+
+  `;
+
+}
+
+
+function openPromotionModal(
+  promo=null
+){
+
+  editingPromotionId=
+    promo?.id||null;
+
+
+  document
+    .getElementById(
+      "promotionModalTitle"
+    )
+    .textContent=
+      promo
+      ?
+      "Edit Discount Code"
+      :
+      "Create Discount Code";
+
+
+  clearPromotionForm();
+
+
+  if(promo){
+
+    document
+      .getElementById(
+        "promoCode"
+      )
+      .value=
+        promo.code||"";
+
+    document
+      .getElementById(
+        "promoType"
+      )
+      .value=
+        promo.type||
+        "percentage";
+
+    document
+      .getElementById(
+        "promoValue"
+      )
+      .value=
+        promo.value??"";
+
+    document
+      .getElementById(
+        "promoMinimum"
+      )
+      .value=
+        promo.minimum_order??0;
+
+    document
+      .getElementById(
+        "promoMaxUses"
+      )
+      .value=
+        promo.max_uses??0;
+
+    document
+      .getElementById(
+        "promoExpiry"
+      )
+      .value=
+        promo.expiry||"";
+
+    document
+      .getElementById(
+        "promoCampaign"
+      )
+      .value=
+        promo.campaign||"";
+
+    document
+      .getElementById(
+        "promoDescription"
+      )
+      .value=
+        promo.description||"";
+
+    document
+      .getElementById(
+        "promoActive"
+      )
+      .value=
+        String(
+          promo.active!==false
+        );
+
+  }
+
+
+  document
+    .getElementById(
+      "promotionModal"
+    )
+    .classList.add("open");
+
+}
+
+
+function closePromotionModal(){
+
+  document
+    .getElementById(
+      "promotionModal"
+    )
+    .classList.remove("open");
+
+}
+
+
+function clearPromotionForm(){
+
+  [
+    "promoCode",
+    "promoValue",
+    "promoCampaign",
+    "promoDescription"
+  ]
+  .forEach(
+    id=>
+      document
+        .getElementById(id)
+        .value=""
+  );
+
+
+  document
+    .getElementById(
+      "promoType"
+    )
+    .value=
+      "percentage";
+
+
+  document
+    .getElementById(
+      "promoMinimum"
+    )
+    .value=
+      "0";
+
+
+  document
+    .getElementById(
+      "promoMaxUses"
+    )
+    .value=
+      "0";
+
+
+  document
+    .getElementById(
+      "promoExpiry"
+    )
+    .value="";
+
+
+  document
+    .getElementById(
+      "promoActive"
+    )
+    .value=
+      "true";
+
+
+  document
+    .getElementById(
+      "promotionError"
+    )
+    .textContent="";
+
+}
+
+
+function editPromotion(id){
+
+  const promo=
+    currentPromotions.find(
+      p=>p.id===id
+    );
+
+
+  if(!promo){
+
+    alert(
+      "Promotion could not be found."
+    );
+
+    return;
+
+  }
+
+
+  openPromotionModal(
+    promo
+  );
+
+}
+
+
+async function savePromotion(){
+
+  const error=
+    document
+      .getElementById(
+        "promotionError"
+      );
+
+
+  error.textContent="";
+
+
+  const code=
+    document
+      .getElementById(
+        "promoCode"
+      )
+      .value
+      .trim()
+      .toUpperCase();
+
+
+  const value=
+    Number(
+      document
+        .getElementById(
+          "promoValue"
+        )
+        .value
+    );
+
+
+  const type=
+    document
+      .getElementById(
+        "promoType"
+      )
+      .value;
+
+
+  if(!code){
+
+    error.textContent=
+      "Discount code is required.";
+
+    return;
+
+  }
+
+
+  if(!value || value<=0){
+
+    error.textContent=
+      "Enter a valid discount value.";
+
+    return;
+
+  }
+
+
+  if(
+    type==="percentage" &&
+    value>100
+  ){
+
+    error.textContent=
+      "Percentage discount cannot exceed 100%.";
+
+    return;
+
+  }
+
+
+  try{
+
+    const payload={
+
+      code,
+
+      type,
+
+      value,
+
+      minimum_order:
+        Number(
+          document
+            .getElementById(
+              "promoMinimum"
+            )
+            .value
+        )||0,
+
+      max_uses:
+        Number(
+          document
+            .getElementById(
+              "promoMaxUses"
+            )
+            .value
+        )||0,
+
+      expiry:
+        document
+          .getElementById(
+            "promoExpiry"
+          )
+          .value,
+
+      campaign:
+        document
+          .getElementById(
+            "promoCampaign"
+          )
+          .value
+          .trim(),
+
+      description:
+        document
+          .getElementById(
+            "promoDescription"
+          )
+          .value
+          .trim(),
+
+      active:
+        document
+          .getElementById(
+            "promoActive"
+          )
+          .value==="true"
+
+    };
+
+
+    if(editingPromotionId){
+
+      await api(
+        "/api/promotions/"+
+        editingPromotionId,
+        {
+          method:"PUT",
+          headers:{
+            "Content-Type":
+              "application/json"
+          },
+          body:
+            JSON.stringify(
+              payload
+            )
+        }
+      );
+
+
+      showToast(
+        "Discount code updated"
+      );
+
+    }else{
+
+      await api(
+        "/api/promotions",
+        {
+          method:"POST",
+          headers:{
+            "Content-Type":
+              "application/json"
+          },
+          body:
+            JSON.stringify(
+              payload
+            )
+        }
+      );
+
+
+      showToast(
+        "Discount code created"
+      );
+
+    }
+
+
+    closePromotionModal();
+
+    await promotionsPage();
+
+
+  }catch(e){
+
+    error.textContent=
+      e.message;
+
+  }
+
+}
+
+
+async function togglePromotion(id){
+
+  try{
+
+    await api(
+      "/api/promotions/"+
+      id+
+      "/toggle",
+      {
+        method:"PUT"
+      }
+    );
+
+
+    showToast(
+      "Promotion status updated"
+    );
+
+
+    await promotionsPage();
+
+
+  }catch(e){
+
+    alert(e.message);
+
+  }
+
+}
+
+
+async function deletePromotion(id){
+
+  if(
+    !confirm(
+      "Delete this discount code?"
+    )
+  )
+    return;
+
+
+  try{
+
+    await api(
+      "/api/promotions/"+id,
+      {
+        method:"DELETE"
+      }
+    );
+
+
+    showToast(
+      "Discount code deleted"
+    );
+
+
+    await promotionsPage();
+
+
+  }catch(e){
+
+    alert(e.message);
+
+  }
+
+}
+
+
+/* =====================================================
+   MARKETING / INFLUENCERS
+===================================================== */
+
+async function marketingPage(){
+
+  currentMarketing=
+    await api("/api/marketing");
+
+
+  document
+    .getElementById(
+      "mainContent"
+    )
+    .innerHTML=`
+
+      <div class="page-heading">
+
+        <div>
+
+          <h1>
+            Influencer & Marketing
+          </h1>
+
+          <p>
+            Track influencer campaigns,
+            promotional gifts and marketing activity.
+          </p>
+
+        </div>
+
+
+        <button
+          class="gold"
+          onclick="openMarketingModal()"
+        >
+          + ADD MARKETING RECORD
+        </button>
+
+      </div>
+
+
+      <div class="panel">
+
+        ${
+          currentMarketing.length
+          ?
+          currentMarketing
+            .map(
+              marketingCard
+            )
+            .join("")
+          :
+          `
+            <div class="empty">
+
+              No marketing records yet.
+
+            </div>
+          `
+        }
+
+      </div>
+
+    `;
+
+}
+
+
+function marketingCard(item){
+
+  return `
+
+    <div class="marketing-card">
+
+      <div class="marketing-grid">
+
+        <div>
+
+          <div class="small">
+            INFLUENCER
+          </div>
+
+          <strong>
+            ${escapeHtml(
+              item.name
+            )}
+          </strong>
+
+        </div>
+
+
+        <div>
+
+          <div class="small">
+            CAMPAIGN
+          </div>
+
+          <strong>
+            ${escapeHtml(
+              item.campaign||"-"
+            )}
+          </strong>
+
+        </div>
+
+
+        <div>
+
+          <div class="small">
+            DISCOUNT CODE
+          </div>
+
+          <strong>
+            ${escapeHtml(
+              item.code||"-"
+            )}
+          </strong>
+
+        </div>
+
+
+        <div>
+
+          <div class="small">
+            GIFT / PRODUCT
+          </div>
+
+          <strong>
+            ${escapeHtml(
+              item.gift||"-"
+            )}
+          </strong>
+
+        </div>
+
+
+        <div>
+
+          <div class="small">
+            QUANTITY
+          </div>
+
+          <strong>
+            ${item.quantity||1}
+          </strong>
+
+        </div>
+
+
+        <div>
+
+          <div class="small">
+            NOTES
+          </div>
+
+          <strong>
+            ${escapeHtml(
+              item.notes||"-"
+            )}
+          </strong>
+
+        </div>
+
+      </div>
+
+
+      <div style="margin-top:15px">
+
+        <button
+          class="danger small-btn"
+          onclick="
+            deleteMarketing(
+              '${item.id}'
+            )
+          "
+        >
+          DELETE RECORD
+        </button>
+
+      </div>
+
+    </div>
+
+  `;
+
+}
+
+
+function openMarketingModal(){
+
+  [
+    "marketingName",
+    "marketingCampaign",
+    "marketingCode",
+    "marketingGift",
+    "marketingNotes"
+  ]
+  .forEach(
+    id=>
+      document
+        .getElementById(id)
+        .value=""
+  );
+
+
+  document
+    .getElementById(
+      "marketingQuantity"
+    )
+    .value=
+      "1";
+
+
+  document
+    .getElementById(
+      "marketingError"
+    )
+    .textContent="";
+
+
+  document
+    .getElementById(
+      "marketingModal"
+    )
+    .classList.add("open");
+
+}
+
+
+function closeMarketingModal(){
+
+  document
+    .getElementById(
+      "marketingModal"
+    )
+    .classList.remove("open");
+
+}
+
+
+async function saveMarketing(){
+
+  const error=
+    document
+      .getElementById(
+        "marketingError"
+      );
+
+
+  error.textContent="";
+
+
+  const name=
+    document
+      .getElementById(
+        "marketingName"
+      )
+      .value
+      .trim();
+
+
+  if(!name){
+
+    error.textContent=
+      "Influencer / recipient name is required.";
+
+    return;
+
+  }
+
+
+  try{
+
+    await api(
+      "/api/marketing",
+      {
+        method:"POST",
+        headers:{
+          "Content-Type":
+            "application/json"
+        },
+        body:
+          JSON.stringify({
+
+            name,
+
+            campaign:
+              document
+                .getElementById(
+                  "marketingCampaign"
+                )
+                .value
+                .trim(),
+
+            code:
+              document
+                .getElementById(
+                  "marketingCode"
+                )
+                .value
+                .trim()
+                .toUpperCase(),
+
+            gift:
+              document
+                .getElementById(
+                  "marketingGift"
+                )
+                .value
+                .trim(),
+
+            quantity:
+              Number(
+                document
+                  .getElementById(
+                    "marketingQuantity"
+                  )
+                  .value
+              )||1,
+
+            notes:
+              document
+                .getElementById(
+                  "marketingNotes"
+                )
+                .value
+                .trim()
+
+          })
+
+      }
+    );
+
+
+    closeMarketingModal();
+
+
+    showToast(
+      "Marketing record saved"
+    );
+
+
+    await marketingPage();
+
+
+  }catch(e){
+
+    error.textContent=
+      e.message;
+
+  }
+
+}
+
+
+async function deleteMarketing(id){
+
+  if(
+    !confirm(
+      "Delete this marketing record?"
+    )
+  )
+    return;
+
+
+  try{
+
+    await api(
+      "/api/marketing/"+id,
+      {
+        method:"DELETE"
+      }
+    );
+
+
+    showToast(
+      "Marketing record deleted"
+    );
+
+
+    await marketingPage();
+
+
+  }catch(e){
+
+    alert(
+      e.message
+    );
+
+  }
+
+}
+
+
+/* =====================================================
+   BADGES
+===================================================== */
+
+function orderStatusBadge(order){
+
+  const status=
+    order.order_status||
+    "new";
+
+
+  let cls="blue";
+
+
+  if(status==="completed")
+    cls="green";
+
+  if(status==="cancelled")
+    cls="red";
+
+  if(status==="processing")
+    cls="yellow";
+
+
+  return `
+
+    <span class="badge ${cls}">
+
+      ${escapeHtml(
+        status.toUpperCase()
+      )}
+
+    </span>
+
+  `;
+
+}
+
+
+function paymentStatusBadge(order){
+
+  const status=
+    order.payment_status||
+    "pending";
+
+
+  let cls="yellow";
+
+
+  if(status==="paid")
+    cls="green";
+
+  if(status==="failed")
+    cls="red";
+
+
+  return `
+
+    <span class="badge ${cls}">
+
+      ${escapeHtml(
+        status.toUpperCase()
+      )}
+
+    </span>
+
+  `;
+
+}
+
+
+/* =====================================================
+   HELPERS
+===================================================== */
+
+function money(value){
+
+  return new Intl.NumberFormat(
+    "en-ZA",
+    {
+      style:"currency",
+      currency:"ZAR"
+    }
+  ).format(
+    Number(value)||0
+  );
+
+}
+
+
+function escapeHtml(value){
+
+  return String(
+    value??""
+  )
+  .replace(
+    /&/g,
+    "&amp;"
+  )
+  .replace(
+    /</g,
+    "&lt;"
+  )
+  .replace(
+    />/g,
+    "&gt;"
+  )
+  .replace(
+    /"/g,
+    "&quot;"
+  )
+  .replace(
+    /'/g,
+    "&#039;"
+  );
+
+}
+
+
+function openStore(){
+
+  window.open(
+    "/",
+    "_blank"
+  );
+
+}
+
+
+function showToast(text){
+
+  const toast=
+    document.getElementById(
+      "toast"
+    );
+
+
+  toast.textContent=
+    text;
+
+
+  toast.style.display=
+    "block";
+
+
+  setTimeout(
+    ()=>{
+      toast.style.display=
+        "none";
+    },
+    2500
+  );
+
+}
+
+
+/* =====================================================
+   START
+===================================================== */
+
+(async function(){
+
+  try{
+
+    await api(
+      "/api/admin/me"
+    );
+
+    showAdmin();
+
+  }catch{
+
+    showLogin();
+
+  }
+
+})();
+
+</script>
+
+</body>
+</html>
